@@ -21,7 +21,7 @@ import caduceus.core as c
 
 snakes = s.build_snakes('data/snakes_by_name.csv', 'data/snake_stats.csv')
 
-c.print_snakes_by_weight(s)
+c.print_snakes_by_weight(snakes)
 ```
 
 Running the above snippet with python will return:

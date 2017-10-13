@@ -27,8 +27,8 @@ def build_snakes(common_file, sci_file):
             reader2 = csv.DictReader(csvfile2)
             for row in reader2:
                 if snake.sci_name == row['scientific name']:
-                    snake.weight = row['weight']
-                    snake.length = row['length']
+                    snake.weight = int(row['weight'])
+                    snake.length = int(row['length'])
 
     return snakes
 
@@ -42,4 +42,4 @@ def print_snakes_by_weight(snakes):
     sorterer.sort_by_weight()
     
     for snek in sorterer.sorted_snakes:
-        print('{name}: {wt}'.format(name=snek.common_name, wt=snek.weight)) 
+        print('{name}: {wt}g'.format(name=snek.common_name, wt=snek.weight)) 

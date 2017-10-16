@@ -19,9 +19,9 @@ Now you can import caduceus into your python projects! An example of usage:
 ```
 import caduceus.core as c
 
-snakes = s.build_snakes('data/snakes_by_name.csv', 'data/snake_stats.csv')
+snakes = c.build_snakes('data/snakes_by_name.csv', 'data/snake_stats.csv')
 
-c.print_snakes_by_weight(s)
+c.print_snakes_by_weight(snakes)
 ```
 
 This code is written in example.py, so you can just do:

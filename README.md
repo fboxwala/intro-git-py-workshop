@@ -24,6 +24,9 @@ snakes = s.build_snakes('data/snakes_by_name.csv', 'data/snake_stats.csv')
 c.print_snakes_by_weight(s)
 ```
 
+This code is written in example.py, so you can just do:
+`python example.py`
+
 Running the above snippet with python will return:
 
 ```

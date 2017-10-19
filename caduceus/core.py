@@ -16,14 +16,17 @@ def build_snakes(common_file, sci_file):
     '''
     snakes = []
 
-    with open(common_file, 'rb') as csvfile:
+    with open(common_file, 'r') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            s = Snake(0, 0, row["common name"], row["scientific name"]) 
+            try:
+                s = Snake(0, 0, row["common name"], row["scientific name"]) 
+            except ValueError:
+                print("Caduceus expects specific columns in csv files to work. See help(build_snakes) for the specifications")
             snakes.append(s)
     
     for snake in snakes:
-        with open(sci_file, 'rb') as csvfile2:
+        with open(sci_file, 'r') as csvfile2:
             reader2 = csv.DictReader(csvfile2)
             for row in reader2:
                 if snake.sci_name == row['scientific name']:

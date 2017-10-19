@@ -40,6 +40,18 @@ def print_snakes_by_weight(snakes):
     '''
     sorterer = SnakeSorter(snakes)
     sorterer.sort_by_weight()
-    
+
     for snek in sorterer.sorted_snakes:
-        print('{name}: {wt}g'.format(name=snek.common_name, wt=snek.weight)) 
+        print('{name}: {wt}g'.format(name=snek.common_name, wt=snek.weight))
+
+def print_snakes_by_length(snakes):
+    '''
+    Prints common names of snakes, one per line, sorted by length
+    Args:
+        snakes: a list of Snake objects
+    '''
+    sorterer = SnakeSorter(snakes)
+    sorterer.sort_by_length()
+
+    for snek in sorterer.sorted_snakes:
+        print('{name}: {wt} cm'.format(name=snek.common_name, wt=snek.length))

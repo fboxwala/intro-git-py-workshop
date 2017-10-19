@@ -1,4 +1,7 @@
 class SnakeSorter:
+    '''
+    this class has methods to sort the snakes by different variables
+    '''
     def __init__(self, snakes):
         self.snakes = snakes
         self.sorted_snakes = []

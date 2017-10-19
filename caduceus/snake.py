@@ -1,4 +1,7 @@
 class Snake:
+    '''
+    A class to store snake info
+    '''
     def __init__(self, length, weight, common_name, sci_name):
         self.length = length
         self.weight = weight

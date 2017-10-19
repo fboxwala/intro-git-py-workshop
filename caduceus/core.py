@@ -46,3 +46,10 @@ def print_snakes_by_weight(snakes):
     
     for snek in sorterer.sorted_snakes:
         print('{name}: {wt}g'.format(name=snek.common_name, wt=snek.weight)) 
+
+def print_snakes_by_length(snakes):
+    sorterer = SnakeSorter(snakes)
+    sorterer.sort_by_length()
+
+    for snek in sorterer.sorted_snakes:
+        print('{name}: {wt}g'.format(name=snek.common_name, wt=snek.height)) 

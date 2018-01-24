@@ -8,8 +8,5 @@ setup(
     author_email='',
     url='',
     license='GNU GPL v3',
-    packages=find_packages(),
-    install_requires=[
-        'numpy',
-    ],
-)
+    packages=fi
+

@@ -16,14 +16,14 @@ def build_snakes(common_file, sci_file):
     '''
     snakes = []
 
-    with open(common_file, 'rb') as csvfile:
+    with open(common_file, 'rt') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
             s = Snake(0, 0, row["common name"], row["scientific name"]) 
             snakes.append(s)
     
     for snake in snakes:
-        with open(sci_file, 'rb') as csvfile2:
+        with open(sci_file, 'rt') as csvfile2:
             reader2 = csv.DictReader(csvfile2)
             for row in reader2:
                 if snake.sci_name == row['scientific name']:

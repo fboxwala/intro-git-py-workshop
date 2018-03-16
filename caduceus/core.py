@@ -15,20 +15,25 @@ def build_snakes(common_file, sci_file):
     Returns: an unsorted list of Snake items
     '''
     snakes = []
+# that above may be the docstring?
 
-    with open(common_file, 'rb') as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            s = Snake(0, 0, row["common name"], row["scientific name"]) 
-            snakes.append(s)
+    try:
+        with open(common_file, 'rb') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                s = Snake(0, 0, row["common name"], row["scientific name"]) 
+                snakes.append(s)
     
-    for snake in snakes:
-        with open(sci_file, 'rb') as csvfile2:
-            reader2 = csv.DictReader(csvfile2)
-            for row in reader2:
-                if snake.sci_name == row['scientific name']:
-                    snake.weight = int(row["weight"])
-                    snake.length = int(row['length'])
+        for snake in snakes:
+            with open(sci_file, 'rb') as csvfile2:
+                reader2 = csv.DictReader(csvfile2)
+                for row in reader2:
+                    if snake.sci_name == row['scientific name']:
+                        snake.weight = int(row["weight"])
+                        snake.length = int(row['length'])
+    
+    except: #I don't know what sort of error it would be
+        print "Cadeceus expects specific columns in csv files to work. See help(build_snakes)."
 
     return snakes
 

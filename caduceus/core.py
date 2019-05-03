@@ -19,18 +19,39 @@ def build_snakes(common_file, sci_file):
     with open(common_file, 'rt') as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            s = Snake(0, 0, row["common name"], row["scientific name"]) 
-            snakes.append(s)
+            try:
+                s = Snake(0, 0, row['common name'], row['scientific name']) 
+                snakes.append(s)
+            except ValueError:
+                print("Caduceus expects specific columns in csv files to work.\
+                See help(build_snakes) for the specifications")
     
     for snake in snakes:
         with open(sci_file, 'rt') as csvfile2:
             reader2 = csv.DictReader(csvfile2)
             for row in reader2:
                 if snake.sci_name == row['scientific name']:
-                    snake.weight = int(row["weight"])
-                    snake.length = int(row['length'])
+                    try:
+                        snake.weight = int(row['weight'])
+                        snake.length = int(row['length'])
+                    except ValueError:
+                        print("Caduceus expects specific columns in csv files \
+                        to work. See help(build_snakes) for the specifications")
 
     return snakes
+
+def print_snakes_by_length(snakes):
+    '''
+    prints common names of snakes, one per line, sorted by length
+    Args:
+        snakes: a list of Snake objects
+    '''
+
+    sorterer = SnakeSorter(snakes)
+    sorterer.sort_by_length()
+
+    for snek in sorterer.sorted_snakes:
+        print('{name}: {len}cm'.format(name=snek.common_name, len=snek.length))
 
 def print_snakes_by_weight(snakes):
     '''
